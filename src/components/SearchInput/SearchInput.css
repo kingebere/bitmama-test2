@@ -1,0 +1,21 @@
+.searchInput__textbox {
+  padding: 5px 12px;
+  font-size: 1.4rem;
+  width: 100%;
+  line-height: 20px;
+  color: var(--border-grey);
+  vertical-align: middle;
+  background-color: var(--original-white);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid var(--creamyblue-border);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 #d0d7de33;
+}
+.searchInput {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

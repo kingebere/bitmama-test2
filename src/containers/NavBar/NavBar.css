@@ -1,0 +1,9 @@
+.NavBar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--light-bluish);
+  padding: 12px 0;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,71 @@
+.hide {
+  display: none;
+}
+.User__state {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: flex;
+  animation-name: scale;
+  animation-timing-function: ease-out;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes scale {
+  0% {
+    transform: scale(0.5);
+    /* Safari compatibility */
+    -webkit-transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+    /* Safari compatibility */
+    -webkit-transform: scale(1);
+  }
+}
+.User__statewrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.User__state--active {
+  background-color: var(--original-green);
+}
+.User__state--idle {
+  background-color: var(--original-yellow);
+}
+.User__box {
+  display: flex;
+  gap: 21px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.User__field {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.User__activity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 51px;
+  padding: 0 35px;
+}
+.User__sessions {
+  padding: 12px 57px;
+  gap: 9px;
+  flex-direction: column;
+  display: flex;
+  background-color: var(--light-grey);
+}
+.pink {
+  background: var(--original-pink);
+  padding: 5px;
+  border-radius: 6px;
+}
