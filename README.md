@@ -37,3 +37,13 @@ Install dependencies for both client and server side to start the app
 
 - [React]
 - Redux
+
+## Input Validation
+
+Input values were validated for the following
+
+- Whitespaces
+- Empty input
+- Symbols
+- Values less than 6 characters
+- Values greater than 15 characters
