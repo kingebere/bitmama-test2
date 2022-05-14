@@ -69,7 +69,7 @@ function User() {
         <div className="User__activity">
           {/* displays the last active user */}
           <p>Last Active:</p>
-          <h1>{lastSeen ? lastSeen.name : "Empty"}</h1>
+          <h1>{lastSeen ? lastSeen.name : post[0].name}</h1>
         </div>
       )}
 
