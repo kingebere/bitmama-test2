@@ -10,10 +10,10 @@ function Home() {
 
   const navigate = useNavigate();
 
-  //if no user , redirect to the dashboard
+  //if no user , redirect to the home page
   useEffect(() => {
     if (post.length === 0) {
-      navigate("/dashboard");
+      navigate("/");
     }
   }, []);
 

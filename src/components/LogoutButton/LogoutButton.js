@@ -15,7 +15,7 @@ function Logout() {
   const Clicked = () => {
     dispatch(setDeleteUser(username.toUpperCase()));
 
-    navigate("/dashboard");
+    navigate("/");
   };
   //this useEffect runs when the username equals the current user
   // This prevents unlogged or removed users from accessing the controls/sessions of other

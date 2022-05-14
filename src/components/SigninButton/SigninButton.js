@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 function SigninButton() {
   return (
     <div>
-      <Link to="/dashboard">
+      <Link to="/">
         <p className="btn">Sign in</p>
       </Link>
     </div>

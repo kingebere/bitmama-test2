@@ -13,7 +13,7 @@ const routes = () => (
     <Routes>
       <Route path="/:username" element={<Home />} />
 
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
     </Routes>
   </React.Suspense>
 );

@@ -28,7 +28,7 @@ Install dependencies for both client and server side to start the app
 ```
 
 ```bash
-  navigate to localhost:3000/dashboard as the start point of this application
+  navigate to localhost:3000 as the start point of this application
   run npm run lint to check for lint errors
   run npm run lint:fix to fix lint errors
 ```
