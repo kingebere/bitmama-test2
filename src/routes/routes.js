@@ -11,7 +11,7 @@ const Home = React.lazy(() => import("../pages/Home/Home"));
 const routes = () => (
   <React.Suspense fallback={<Spinner />}>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/:username" element={<Home />} />
 
       <Route path="/dashboard" element={<Dashboard />} />
     </Routes>

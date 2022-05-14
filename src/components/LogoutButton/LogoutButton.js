@@ -1,27 +1,35 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+
+import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import {setDeleteUser} from "../../redux/features/postSlice";
 
 function Logout() {
+  const [user, setUser] = useState("");
   const navigate = useNavigate();
+  const {username} = useParams();
   const dispatch = useDispatch();
-  const {post} = useSelector(state => ({...state.app}));
+  const {removeButton} = useSelector(state => ({...state.app}));
 
   const Clicked = () => {
-    dispatch(setDeleteUser(post[0].name));
+    dispatch(setDeleteUser(username.toUpperCase()));
 
     navigate("/dashboard");
   };
-
+  useEffect(() => {
+    removeButton.map(cde => {
+      if (cde.toUpperCase() === username.toUpperCase()) {
+        setUser(cde);
+      }
+    });
+  }, [removeButton]);
   return (
     <div>
-      {post.length > 0 ? (
+      {!user && (
         <button className="btn" onClick={Clicked}>
           Logout
         </button>
-      ) : (
-        <h1>Add a username</h1>
       )}
     </div>
   );

@@ -13,6 +13,10 @@ const postSlice = createSlice({
     error: false,
     errorMsg: "",
     activeuser: "",
+
+    removeButton: localStorage.getItem("removeUser")
+      ? JSON.parse(localStorage.getItem("removeUser"))
+      : [],
   },
 
   //unshift moves an items to the top(post[0]) .
@@ -48,9 +52,15 @@ const postSlice = createSlice({
 
       localStorage.setItem("post", JSON.stringify(state.post));
     },
+    setRemoveLogoutButton: (state, action) => {
+      state.removeButton.push(action.payload);
+      localStorage.setItem("removeUser", JSON.stringify(state.removeButton));
+    },
 
     setDeleteUser: (state, action) => {
-      state.post = state.post.filter(bv => bv.name !== action.payload);
+      state.post = state.post.filter(
+        bv => bv.name.toUpperCase() !== action.payload
+      );
       localStorage.setItem("post", JSON.stringify(state.post));
     },
   },
@@ -60,6 +70,7 @@ export const {
   setDeleteUser,
   setDuplicate,
   setLastSeen,
+  setRemoveLogoutButton,
   setTimer,
   setError,
   setErrorBoolean,

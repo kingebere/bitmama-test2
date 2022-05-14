@@ -43,7 +43,7 @@ function SearchInput() {
     e.preventDefault();
     if (post.some(cd => cd.name.toUpperCase() == user.toUpperCase())) {
       dispatch(setDuplicate(user));
-      navigate("/");
+      navigate(`/${user}`);
     } else if (user === "") {
       dispatch(setError("Please input a value"));
       dispatch(setErrorBoolean(true));
@@ -84,10 +84,10 @@ function SearchInput() {
     else if (post.length > 0) {
       dispatch(setAddUser(user));
       dispatch(setLastSeen(1));
-      navigate("/");
+      navigate(`/${user}`);
     } else {
       dispatch(setAddUser(user));
-      navigate("/");
+      navigate(`/${user}`);
     }
   };
 

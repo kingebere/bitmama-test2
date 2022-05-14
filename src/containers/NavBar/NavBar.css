@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 12px;
   background: var(--light-bluish);
-  padding: 12px 0;
+  padding: 12px 17px;
   justify-content: center;
   align-items: center;
 }
