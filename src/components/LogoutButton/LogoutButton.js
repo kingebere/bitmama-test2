@@ -10,24 +10,26 @@ function Logout() {
   const navigate = useNavigate();
   const {username} = useParams();
   const dispatch = useDispatch();
-  const {removeButton} = useSelector(state => ({...state.app}));
+  const {post} = useSelector(state => ({...state.app}));
 
   const Clicked = () => {
     dispatch(setDeleteUser(username.toUpperCase()));
 
     navigate("/dashboard");
   };
-  //this useEffect runs when the username equals the deleted user
+  //this useEffect runs when the username equals the current user
+  // This prevents unlogged or removed users from accessing the controls/sessions of other
+  //users e.g like manually changing the routes in the search bar to an unregistered user
   useEffect(() => {
-    removeButton.map(cde => {
-      if (cde.toUpperCase() === username.toUpperCase()) {
-        setUser(cde);
+    post.map(cd => {
+      if (cd.name.toUpperCase().includes(username.toUpperCase())) {
+        setUser(username);
       }
     });
-  }, [removeButton]);
+  }, [post]);
   return (
     <div>
-      {!user && (
+      {user && (
         <button className="btn" onClick={Clicked}>
           Logout
         </button>

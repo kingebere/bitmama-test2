@@ -11,6 +11,7 @@ import {
 
 function User() {
   const [user, setUser] = useState("");
+  const [InvalidUser, setInvalidUser] = useState("");
   const {username} = useParams();
   const {post, duplicate, removeButton} = useSelector(state => ({
     ...state.app,
@@ -41,6 +42,15 @@ function User() {
     });
   }, [removeButton]);
 
+  // This prevents unlogged or removed users from accessing the controls/sessions of other
+  //users e.g like manually changing the routes in the search bar to an unregistered user
+  useEffect(() => {
+    post.map(cd => {
+      if (cd.name.toUpperCase().includes(username.toUpperCase())) {
+        setInvalidUser(username);
+      }
+    });
+  }, [post]);
   //Since name is unique , I decided to use it to clear selected items from localstorage
   //It also adds the usernames to a new localstorage to enable the other sessions
   //get the information about deleted users
@@ -55,7 +65,7 @@ function User() {
 
   return (
     <div className="User__field">
-      {!user && (
+      {!user && InvalidUser && (
         <div className="User__activity">
           {/* displays the last active user */}
           <p>Last Active:</p>
@@ -65,6 +75,7 @@ function User() {
 
       <div className="User__sessions">
         {!user &&
+          InvalidUser &&
           post.map(sed => {
             const {name, state} = sed;
 
