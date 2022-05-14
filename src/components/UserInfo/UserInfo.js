@@ -8,6 +8,9 @@ function User() {
   const {username} = useParams();
   const [name, setName] = useState("");
   const {post} = useSelector(state => ({...state.app}));
+
+  // This useEffect runs when the current user is found in the localstorage user array.If found,
+  // the username is stored in useState
   useEffect(() => {
     post.map(cd => {
       if (cd.name.toUpperCase().includes(username.toUpperCase())) {

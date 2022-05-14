@@ -17,6 +17,7 @@ function Logout() {
 
     navigate("/dashboard");
   };
+  //this useEffect runs when the username equals the deleted user
   useEffect(() => {
     removeButton.map(cde => {
       if (cde.toUpperCase() === username.toUpperCase()) {

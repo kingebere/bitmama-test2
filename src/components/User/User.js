@@ -31,6 +31,8 @@ function User() {
     });
   }, [post]);
 
+  // This useEffect runs when the current user equals the deleted user.If found,
+  // the username is stored in useState
   useEffect(() => {
     removeButton.map(cde => {
       if (cde.toUpperCase() === username.toUpperCase()) {
@@ -40,12 +42,15 @@ function User() {
   }, [removeButton]);
 
   //Since name is unique , I decided to use it to clear selected items from localstorage
+  //It also adds the usernames to a new localstorage to enable the other sessions
+  //get the information about deleted users
   const Clicked = name => {
     dispatch(setDeleteUser(name.toUpperCase()));
     dispatch(setRemoveLogoutButton(name.toUpperCase()));
   };
-  const cut = post.slice(1);
 
+  // cuts out the first user object and finds the first user with the active state
+  const cut = post.slice(1);
   const lastSeen = cut.find(cde => cde.state === "Active");
 
   return (

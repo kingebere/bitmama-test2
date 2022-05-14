@@ -76,7 +76,7 @@ function SearchInput() {
     //add the user to the array
     //   if there are more than one item in the array ,
     // it appends a last seen value to the first object in the array
-    //then it navigates to the home page.
+    //then it navigates to the new user page.
     //The logic here is that to watch for a new user creation , we add
     // a Date.now() to the previous user object. This indicates
     //that a new user has been created and the date signifies the
