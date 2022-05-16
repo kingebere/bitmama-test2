@@ -14,7 +14,7 @@ function User() {
   useEffect(() => {
     post.map(cd => {
       if (cd.name.toUpperCase().includes(username.toUpperCase())) {
-        setName(username);
+        setName(username.toUpperCase());
       }
     });
   }, [post]);

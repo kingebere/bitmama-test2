@@ -8,7 +8,7 @@ const postSlice = createSlice({
     loading: true,
     post: localStorage.getItem("post")
       ? JSON.parse(localStorage.getItem("post"))
-      : [],
+      : [{name: "", state: "", lastseen: 100000000000000}],
     duplicate: "",
     error: false,
     errorMsg: "",
@@ -42,11 +42,20 @@ const postSlice = createSlice({
     setErrorBoolean: (state, action) => {
       state.error = action.payload;
     },
+    // issues arose here when deleting a user before the 60 secs , so I found a way to identify
+    // if a user was in the database . If yes , the find the id
+    // and set to idle
     setTimer: (state, action) => {
-      state.post[action.payload].state = "idle";
+      const found = state.post.findIndex(
+        cd => cd.name.toUpperCase() === action.payload
+      );
+      if (found > 0) {
+        state.post[found].state = "idle";
+      }
 
       localStorage.setItem("post", JSON.stringify(state.post));
     },
+
     setLastSeen: (state, action) => {
       state.post[action.payload].lastseen = Date.now();
 
